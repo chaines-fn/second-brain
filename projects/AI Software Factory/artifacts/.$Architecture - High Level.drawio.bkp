@@ -1,0 +1,145 @@
+<mxfile host="app.diagrams.net" agent="Claude" version="21.0.0" type="device">
+  <diagram name="Moissanite Architecture" id="moissanite-arch-2026-05-01-v2">
+    <mxGraphModel dx="1851" dy="1418" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1140" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============ TITLE ============ -->
+        <mxCell id="title" value="AI Software Factory Architecture — High Level" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#162741;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1300" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============ LINEAR TICKET INPUT (aligned above Plan card) ============ -->
+        <mxCell id="linear-input" value="Linear ticket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#162741;strokeColor=#162741;fontColor=#FFFFFF;fontStyle=1;fontSize=12;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="225" y="80" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============ OPERATIONAL FLOW SECTION ============ -->
+        <mxCell id="opflow-label" value="Operational Flow — PEV Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#162741;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="135" width="1300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- Plan card -->
+        <mxCell id="plan-card" value="PLAN&#xa;&#xa;Planner agents draft a plan from Linear ticket.&#xa;Human gate approves → becomes the Spec.&#xa;&#xa;Uses: Knowledge plane (all tiers) + Runtime plane (Brain)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3142AC;strokeColor=#283995;fontColor=#FFFFFF;fontSize=12;fontFamily=Open Sans;align=center;verticalAlign=top;spacingTop=15;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="110" y="180" width="350" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Spec artifact -->
+        <mxCell id="spec-artifact" value="Spec&#xa;(durable)" style="shape=note;whiteSpace=wrap;html=1;fillColor=#FFB838;strokeColor=#CC932D;fontColor=#162741;fontStyle=1;fontSize=10;fontFamily=Open Sans;size=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="475" y="240" width="65" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Execute card -->
+        <mxCell id="execute-card" value="EXECUTE&#xa;&#xa;Coding agents implement the spec.&#xa;Operates entirely in the Runtime plane.&#xa;&#xa;Uses: Spec + Knowledge tiers 1–2 + Runtime plane (Brain ↔ Hands ↔ Session)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F16A22;strokeColor=#C0500F;fontColor=#FFFFFF;fontSize=12;fontFamily=Open Sans;align=center;verticalAlign=top;spacingTop=15;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="555" y="180" width="350" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- PR diff artifact -->
+        <mxCell id="pr-artifact" value="PR diff" style="shape=note;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontStyle=1;fontSize=10;fontFamily=Open Sans;size=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="920" y="240" width="65" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Verify card -->
+        <mxCell id="verify-card" value="VERIFY&#xa;&#xa;Sensors review the PR diff.&#xa;Human gate: PR approval.&#xa;&#xa;Uses: Verification plane (Comp → Inf → Human PR gate)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#13AEAC;strokeColor=#14736F;fontColor=#FFFFFF;fontSize=12;fontFamily=Open Sans;align=center;verticalAlign=top;spacingTop=15;spacingLeft=10;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="180" width="350" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Operational flow arrows -->
+        <mxCell id="edge-linear-plan" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#162741;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="linear-input" target="plan-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-plan-spec" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#283995;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="plan-card" target="spec-artifact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-spec-execute" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#CC932D;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="spec-artifact" target="execute-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-execute-pr" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C0500F;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="execute-card" target="pr-artifact">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-pr-verify" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C0500F;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pr-artifact" target="verify-card">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============ ARCHITECTURE SECTION ============ -->
+        <mxCell id="arch-label" value="Architecture — Three Planes (each PEV phase uses these — color matches the phase that emphasizes it)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#162741;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="385" width="1300" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ============ KNOWLEDGE PLANE (3 tiers) ============ -->
+        <mxCell id="knowledge-container" value="Knowledge Plane" style="swimlane;fontStyle=1;align=center;verticalAlign=top;horizontal=1;startSize=30;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#3142AC;fontSize=13;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="1300" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 1 — Repo-Local -->
+        <mxCell id="k1" value="1 · Repo-Local&#xa;&#xa;AGENTS.md · skills · agents&#xa;specific to one repo only&#xa;(not shared)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="knowledge-container">
+          <mxGeometry x="30" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 2 — Shared Library -->
+        <mxCell id="k2" value="2 · Shared Library&#xa;&#xa;skills · agents · MCP shared&#xa;across multiple repos&#xa;(via APM / ai-toolbox)&#xa;&#xa;includes non-negotiables&#xa;(security, compliance, forbidden patterns)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="knowledge-container">
+          <mxGeometry x="450" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- Tier 3 — Cross-cutting Context -->
+        <mxCell id="k3" value="3 · Cross-cutting Context&#xa;&#xa;architectural decisions&#xa;EDA schemas · technical designs&#xa;that span repos&#xa;&#xa;Candidate: Unblocked" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="knowledge-container">
+          <mxGeometry x="870" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- ============ RUNTIME PLANE ============ -->
+        <mxCell id="runtime-container" value="Runtime Plane" style="swimlane;fontStyle=1;align=center;verticalAlign=top;horizontal=1;startSize=30;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#C0500F;fontSize=13;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="1300" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hands" value="Hands&#xa;&#xa;sandboxes + tools" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F16A22;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="runtime-container">
+          <mxGeometry x="30" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="brain" value="Brain&#xa;&#xa;model + harness + orchestrator&#xa;&#xa;Candidates: Cursor SDK · Bedrock AgentCore · Azure AI Foundry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F16A22;strokeColor=#C0500F;fontColor=#FFFFFF;fontStyle=1;fontSize=12;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="runtime-container">
+          <mxGeometry x="450" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="session" value="Session&#xa;&#xa;durable event log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#F16A22;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="runtime-container">
+          <mxGeometry x="870" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-brain-hands" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C0500F;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="runtime-container" source="brain" target="hands" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-brain-session" style="endArrow=classic;startArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#C0500F;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="runtime-container" source="brain" target="session" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============ VERIFICATION PLANE ============ -->
+        <mxCell id="verification-container" value="Verification Plane" style="swimlane;fontStyle=1;align=center;verticalAlign=top;horizontal=1;startSize=30;fillColor=#D2F3F3;strokeColor=#13AEAC;fontColor=#14736F;fontSize=13;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="50" y="860" width="1300" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="comp" value="Computational sensors&#xa;&#xa;Sonar · linters&#xa;coverage · structural tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#13AEAC;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="verification-container">
+          <mxGeometry x="30" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="inf" value="Inferential sensors&#xa;&#xa;review agent +&#xa;adversarial review agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#13AEAC;fontColor=#162741;fontSize=11;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="verification-container">
+          <mxGeometry x="450" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="human" value="Human PR gate&#xa;&#xa;final approve / reject" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1FA881;strokeColor=#178564;fontColor=#FFFFFF;fontStyle=1;fontSize=13;fontFamily=Open Sans;align=center;verticalAlign=middle;" vertex="1" parent="verification-container">
+          <mxGeometry x="870" y="45" width="400" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge-comp-inf" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#14736F;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="verification-container" source="comp" target="inf" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-inf-human" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#14736F;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="verification-container" source="inf" target="human" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============ MERGED PR (aligned below Human PR Gate, center x=1120) ============ -->
+        <mxCell id="merged-pr" value="Merged PR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1FA881;strokeColor=#178564;fontColor=#FFFFFF;fontStyle=1;fontSize=12;fontFamily=Open Sans;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1080" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-human-merged" value="approves" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;strokeColor=#178564;fontColor=#178564;fontSize=10;fontFamily=Open Sans;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="human" target="merged-pr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

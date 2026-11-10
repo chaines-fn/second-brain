@@ -1,0 +1,146 @@
+<mxfile host="app.diagrams.net" modified="2026-05-06T18:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+  <diagram name="Reporting Targets" id="reporting-targets">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="Reporting Targets — Bounded Contexts &amp; Lookup" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1020" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Subtitle -->
+        <mxCell id="subtitle" value="Composite key: (priority, workstream_id) — most-specific match wins; null workstream = fallback" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=2;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="58" width="1020" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Section 1 header -->
+        <mxCell id="s1_header" value="Bounded Contexts &amp; Ownership" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#3142AC;" vertex="1" parent="1">
+          <mxGeometry x="40" y="92" width="400" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Work Order box -->
+        <mxCell id="wo_box" value="Work Order&#xa;(fn-core)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontStyle=1;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="125" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="wo_attrs" value="First-class attributes:&#xa;&#xa;• priority: int (1–6)&#xa;&#xa;• workstream_id: ref&#xa;   (optional, validated)" style="text;html=1;align=left;verticalAlign=top;fontSize=12;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="60" y="170" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Project box -->
+        <mxCell id="proj_box" value="Project&#xa;(fn-core)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontStyle=1;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="320" y="125" width="360" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_ws" value="Workstream Registry (SCD2)&#xa;• id, name&#xa;• project-scoped, soft-delete" style="text;html=1;align=left;verticalAlign=top;fontSize=12;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="340" y="170" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_divider" value="" style="endArrow=none;html=1;strokeColor=#F16A22;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="240" as="sourcePoint" />
+            <mxPoint x="660" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="proj_targets" value="Reporting Targets (SCD2)&#xa;• key: (priority, workstream_id)&#xa;• assign / arrive / complete defs&#xa;• timing source: duration OR custom field" style="text;html=1;align=left;verticalAlign=top;fontSize=12;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="340" y="250" width="320" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Dispatch Automation box -->
+        <mxCell id="da_box" value="Dispatch Automation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#13AEAC;fontStyle=1;fontSize=13;align=center;verticalAlign=top;spacingTop=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="125" width="320" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="da_overrides" value="Dispatch Override Config&#xa;&#xa;• same (priority, workstream_id) key&#xa;• today: MP expansion timing&#xa;• separate storage from targets&#xa;• co-located in UX, separated in code" style="text;html=1;align=left;verticalAlign=top;fontSize=12;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="740" y="170" width="280" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Reporting consumer -->
+        <mxCell id="rep_box" value="Reporting (downstream consumer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#3142AC;fontStyle=1;fontSize=13;align=center;verticalAlign=top;spacingTop=10;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="395" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rep_attrs" value="Reads target defs + WO actuals to compute compliance.&#xa;Routing-agnostic — applies to all WOs (SD or manual).&#xa;Where this physically lives: open question." style="text;html=1;align=left;verticalAlign=top;fontSize=12;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="340" y="430" width="320" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows in section 1 -->
+        <mxCell id="arrow_wo_proj" value="references&#xa;workstream" style="endArrow=classic;html=1;strokeColor=#666666;fontSize=10;fontColor=#666666;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;" edge="1" parent="1" source="wo_box" target="proj_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_da_wo" value="reads priority +&#xa;workstream at dispatch" style="endArrow=classic;html=1;strokeColor=#666666;fontSize=10;fontColor=#666666;exitX=0;exitY=0.7;exitDx=0;exitDy=0;entryX=1;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="da_box" target="wo_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow_rep_proj" value="reads targets" style="endArrow=classic;html=1;strokeColor=#666666;fontSize=10;fontColor=#666666;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rep_box" target="proj_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Divider -->
+        <mxCell id="divider" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#CCCCCC;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="535" as="sourcePoint" />
+            <mxPoint x="1060" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Section 2 header -->
+        <mxCell id="s2_header" value="Lookup Flow at Evaluation Time" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#3142AC;" vertex="1" parent="1">
+          <mxGeometry x="40" y="555" width="400" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Input WO -->
+        <mxCell id="input_wo" value="Work Order&#xa;&#xa;priority = 2&#xa;workstream = &quot;Dell&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Project lookup -->
+        <mxCell id="proj_lookup" value="Project Lookup&#xa;&#xa;match (priority, workstream)&#xa;most-specific wins&#xa;null workstream = fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontSize=12;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="280" y="595" width="240" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Match result -->
+        <mxCell id="match_result" value="Reporting Target&#xa;assign / arrive / complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="570" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Override result -->
+        <mxCell id="override_result" value="Dispatch Override (or none)&#xa;same key, different store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#13AEAC;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="660" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Reporting eval -->
+        <mxCell id="rep_eval" value="Reporting evaluates&#xa;target vs. actual&#xa;over WO lifecycle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#3142AC;fontSize=12;align=center;verticalAlign=middle;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="570" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- No-match note -->
+        <mxCell id="no_match" value="No match → no SLA tracking for this WO. Silent. No default, no error." style="text;html=1;align=center;verticalAlign=top;fontSize=11;fontColor=#666666;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="715" width="520" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Flow arrows -->
+        <mxCell id="flow1" value="" style="endArrow=classic;html=1;strokeColor=#162741;strokeWidth=2;" edge="1" parent="1" source="input_wo" target="proj_lookup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" value="" style="endArrow=classic;html=1;strokeColor=#162741;strokeWidth=2;" edge="1" parent="1" source="proj_lookup" target="match_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" value="" style="endArrow=classic;html=1;strokeColor=#162741;strokeWidth=2;" edge="1" parent="1" source="proj_lookup" target="override_result">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" value="re-evaluated&#xa;continuously" style="endArrow=classic;html=1;strokeColor=#162741;strokeWidth=2;dashed=1;fontSize=10;fontColor=#666666;" edge="1" parent="1" source="match_result" target="rep_eval">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#CCCCCC;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="770" width="1020" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="Notes" style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#3142AC;" vertex="1" parent="1">
+          <mxGeometry x="60" y="780" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_text" value="• No snapshotting — lookup re-evaluates at evaluation time so buyers can adjust targets. SCD2 gives historical accuracy.&#xa;• Workstream accepted by name or ID on WO create (matches ST pattern); resolved against project registry; unknown name fails.&#xa;• Hard cut from custom-field-driven model. No migration. Old shape goes away." style="text;html=1;align=left;verticalAlign=top;fontSize=11;fontColor=#162741;" vertex="1" parent="1">
+          <mxGeometry x="60" y="800" width="980" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

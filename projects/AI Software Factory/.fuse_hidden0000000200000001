@@ -1,0 +1,115 @@
+# Chuck Haines — Workspace Context
+
+## Workspace Structure
+
+**CRITICAL** Use this as your guidance for how to find relevant context.
+
+```
+AI Software Factory/
+├── CLAUDE.md                    ← this file
+├── program/
+│   ├── overview.md              ← full initiative overview (AI-DLC umbrella + both workstreams)
+│   ├── people.md                ← key people and stakeholders
+│   ├── references.md            ← relevant documents, slack channels, meetings and resources
+│   ├── OKRs/
+│   │   └── h2-2026-okrs.md       ← CANONICAL, current H2 OKR doc — ground any discussion of H2 work in this
+│   └── archive/                 ← superseded H2 docs (AWS pipeline architecture + implementation plan — not current, see note below)
+├── me/
+│   ├── about-me.md              ← Chuck's role and profile
+│   ├── brand-voice.md           ← voice and tone guide
+│   └── working-preferences.md  ← how to work with Chuck
+├── knowledge/
+│   ├── tech-context.md          ← Field Nation tech stack and architecture context
+│   ├── industry-landscape.md    ← EXTERNAL industry POV: vendor theses, published case studies, emerging vocabulary. Start here for "that article I read" / industry-direction questions
+│   └── meetings/                ← dated meeting notes
+├── ai-guild/
+│   └── meetings/                ← AI Guild weekly meeting notes (see note below)
+├── research/
+│   └── index.md                 ← Log of research reports done in this project's context
+├── brainstorm/
+│   └── index.md                 ← Log of brainstorm/discovery sessions done in this project's context
+└── artifacts/
+    └── *.md                     ← one-off deliverables (interview scripts, drafts, etc.)
+```
+
+**Research & brainstorm logs:** kept local to this project — check before starting new work: [research/index.md](./research/index.md) · [brainstorm/index.md](./brainstorm/index.md)
+
+**AI-DLC vs. AI Guild — two distinct things tracked in one workspace:**
+
+- **AI-DLC** — the umbrella initiative (rebranded 2026-07-09 from "AI Software Factory," per Chuck) tracked in `program/`, `knowledge/`, `artifacts/`. Encompasses two workstreams:
+  1. **AI Software Factory (Moissanite)** — the technical build: the production PEV pipeline. **As of 2026-07-14, Chuck is sole lead** (with contractors) — Redwan rolled off the project.
+  2. **AI-DLC (Process Transformation)** — the new workstream turning Field Nation's current SDLC into a more AI-native process. **As of 2026-07-14, Joe leads this workstream.** Not yet fleshed out in this workspace — add `program/` content as it develops.
+- **AI Guild** — a separate, broader weekly practitioner forum (mostly Bangladesh engineering + some US folks) where day-to-day agentic-development problems get raised. Tracked lightly under `ai-guild/meetings/` (no `overview.md`/`people.md` yet — add if it grows). Overlaps with AI-DLC in people and sometimes in work — e.g. the Guild raises a question and Chuck routes the actual evaluation to his Factory contractors — but it is not the same initiative. Don't conflate content between them.
+
+*Note on terminology history:* an earlier alignment session (2026-07-08) had resolved on the name **"AI SDLC"** for this same two-workstream structure (see `program/overview.md`). Chuck's 2026-07-09 direction supersedes that with **"AI-DLC."** Historical meeting notes and dated entries that say "AI SDLC" are left as-is — they're records of what was decided/said at the time.
+
+## Who I Am
+
+Sr. Principal Software Engineer at Field Nation — an on-site labor marketplace connecting field service companies with skilled IT technicians. I report to Cory Muir (Sr. Director, Software Engineering). I don't manage a team directly; my influence is cross-cutting across multiple teams. I focus on architecture, technical design, POCs, mentoring, and code review.
+
+**What makes me different:** Bias to action — I bridge speed and thoroughness. I also excel at translating between technical and non-technical folks.
+
+→ Full profile: [me/about-me.md](./me/about-me.md)
+
+## How I Want Claude to Work
+
+### Communication
+
+- **Concise and to the point by default.** I'll ask for more detail if I need it.
+- Match my conversational, warm tone. Be direct.
+- Don't over-format with bullets and headers unless the content requires it.
+
+### Knowledge Storage
+
+- **Do NOT use auto-memory.** Store all project knowledge, decisions, and context directly in the project's markdown files (overview.md, people.md, references.md, meeting notes, etc.).
+- When learning something new from Slack, meetings, or conversation — update the relevant .md file in this workspace, don't write to .auto-memory.
+
+### Safety Rules
+
+- **Read operations: always OK** — Search Slack, read Confluence, check calendars, pull Linear data, web searches, file creation in workspace.
+- **Write/delete operations: NEVER without permission** — No sending messages, creating issues, updating pages, posting comments, or modifying anything without explicit approval.
+
+→ Full preferences: [me/working-preferences.md](./me/working-preferences.md)
+
+### Voice
+
+When drafting messages or documents for me: warm, casual, direct. "Hey y'all" energy. No corporate buzzwords. Honest about uncertainty. Share early, invite feedback.
+
+→ Full voice guide: [me/brand-voice.md](./me/brand-voice.md)
+
+## AI-DLC Project Context
+
+This workspace is the hub for **AI-DLC** at Field Nation — the umbrella initiative (rebranded 2026-07-09 from "AI Software Factory") covering an AI-First Product, Engineering & Design (PEX) Operating Model being rolled out across the organization. It has two workstreams: the **AI Software Factory** (technical build — the production PEV pipeline) and **AI-DLC (Process Transformation)** (turning Field Nation's current SDLC into a more AI-native process). Most of the content in this workspace to date covers the Factory workstream, since that's where the work has concretely happened; the process-transformation workstream is newer and still light on dedicated files.
+
+→ Full context: [program/overview.md](./program/overview.md)
+→ Key people: [program/people.md](./program/people.md)
+→ Tech context: [knowledge/tech-context.md](./knowledge/tech-context.md)
+→ **External industry POV:** [knowledge/industry-landscape.md](./knowledge/industry-landscape.md) — vendor theses, published case studies, emerging vocabulary. Check here first when Chuck references an article or asks where the industry is heading.
+→ All documents, Slack channels, and meeting references: [program/references.md](./program/references.md)
+→ **Current H2 OKRs (canonical):** [program/OKRs/h2-2026-okrs.md](./program/OKRs/h2-2026-okrs.md)
+
+**Key things to know:**
+
+- **The current H2 OKRs live at [program/OKRs/h2-2026-okrs.md](./program/OKRs/h2-2026-okrs.md).** This is what H2 work is actually being run against — ground any discussion of objectives, KRs, or milestones in this doc rather than earlier drafts, the Q3 OKR tracker spreadsheet notes below, or older meeting-note framings.
+- The initiative is owned by **Cory Muir** (Chuck's manager)
+- **Two workstreams under AI-DLC:** (1) **AI Software Factory** — technical build, **Chuck sole lead as of 2026-07-14** (with contractors; Redwan rolled off the project that day); (2) **AI-DLC (Process Transformation)** — turning the current SDLC into a more AI-native process, **Joe leads as of 2026-07-14**. See [program/overview.md](./program/overview.md#leadership-change-redwan-rolls-off-workstream-leads-split-2026-07-14).
+- Chuck's role maps to the **Architecture Lead archetype** in the model — primary validator of AI-generated technical specs, guardian of platform-wide architectural consistency
+- The **PM Playbook** (Steps 1-5) is the core workflow tool — AI skills for these steps are installed in this workspace
+- The model has two parts: a **PEX Operating Model** (problem discovery → engineering handoff) and an **Engineering Operating Model** (handoff → production software)
+- The foundational concept is the **PEV Loop**: Plan (human-led) → Execute (agent-led) → Verify (human-led)
+- **AWS pipeline architecture — ARCHIVED as of 2026-07-14, not current H2 guidance.** The detailed LangGraph DeepAgents PEV-on-AWS architecture and its ticket-ready implementation plan (originated 2026-07-08, PRE-VERIFY added 2026-07-09) were moved to `program/archive/` and delinked from the workspace docs — the 2026-07-13 H2 Plan Review deprioritized standing up this pipeline for H2 (see the embed-first pivot bullet below, which is the current direction). The architecture may still be the eventual target shape if a full build resumes (no earlier than Q4), and the diagram still lives in [Lucid](https://lucid.app/lucidchart/9b39ee36-446e-4192-b4f5-bb98fd66ef28/edit), but don't treat either doc as active guidance right now. An earlier Managed-Agents alternative is separately archived in `artifacts/archive/`.
+- **Embed-first pivot & pilot narrowed to 1-2 teams (2026-07-13, H2 Plan Review):** Leadership session shifted strategy from "build the pipeline, then apply it" to "embed with teams, find why they can't move faster, fix those specific gaps (missing skills, code review agents), let the factory emerge from that." Pilot scope narrowed from all 18 teams to 1-2 core teams to prove velocity gains before wider rollout in H1 next year. Mid-August "PR merged via factory" formalized as a Q3 OKR. See [program/overview.md](./program/overview.md#embed-first-pivot--pilot-scope-narrowing-2026-07-13).
+- The active engineering team is **Team Moissanite** (Slack: #moissanite-eng): Chuck (Workstream 1 lead as of 2026-07-14), Joe (Workstream 2 lead as of 2026-07-14) + three contractors (Vitalii Belinskyi on ai-toolbox — now also weighing in on the M3 hosting-platform pick; Asad Ali on agent-hosting POC, tentatively also the FN-Core-parity sandbox image spike as of 2026-07-10; Mykhailo Sakhnik, joined 2026-07-06, now on the OpenAI-on-Bedrock integration as of 2026-07-10). Redwan Shahzada rolled off the project 2026-07-14.
+- **Platform selection (M3) — target date (July 6, 2026) passed without formal lock-in.** As of the 2026-07-08 AI SF → AI SDLC alignment session, the team is leaning AWS (Bedrock Agent Core + LangGraph) over GCP, but this is not yet formally finalized — Chuck and Joe still own closing it out. Azure AI Foundry and Deep Agents (private beta) are no longer active candidates; the live comparison is AWS vs. GCP.
+- **Resourcing resolved, backfill allocation still evolving (updated 2026-08-04):** **Chuck is now full-time dedicated to AI-DLC**, treated as settled fact org-side and reconfirmed by Chuck himself on 8/4. The new BD Principal, **Ehtasham Tamvir, started August 3, 2026**. The Tamvir/Atiqul Haque team allocation has been re-proposed a third time (7/15 → 7/30 → 8/4): as of 8/4, Redwan's plan has **Tamvir starting on Break/Fix** (mentored by Chuck, possible later move to Granite) and **Atiqul moving from Granite to Platinum** (not Break/Fix, which Chuck had opposed 7/30) — not yet locked in. New team detail: Break/Fix narrowing to two teams as Marble moves to the Data Platform. See [program/people.md](./program/people.md).
+- **Sonar signed and in onboarding (updated 2026-08-03).** Contract executed 2026-07-15; invoice issued 7/29; delivery team introduced (Loren Williams @ Sonar, ITMethods); **Launchpad kickoff targeted Aug 4**. Sonar Vortex and SAST/security scanning both included at no extra cost. Integration tickets MOI-78/79 still Todo on Joe.
+- **Gitar is now in a scheduled trial for O1 code review (agreed 2026-08-10), with its underlying disagreement still unresolved — and Tessl has entered the same decision as of 2026-08-13.** Gitar is Sonar's AI code-review product; demo/call with Ali Adl-Tabatabai (Sonar EVP / Gitar founder) happened 2026-08-07. **Chuck's bar: an agentic reviewer must publish *how* it reviewed** (process, what it checked, what it judged fine) — Gitar deliberately omits that to stay low-noise, and that gap was never resolved. Despite this, Chuck agreed to a concrete trial plan (8/17 pre-trial sync → 8/19 kickoff → trial through 9/2 → finalize partnership after), driven by wanting a code-review solution live before end of September. Next step is a pricing conversation with Cory, now scheduled: **Mon Aug 17, 10:00-10:30am CDT** ("Sonar & Field Nation: Gitar Pricing Discussion"). **Tessl's agentic code review (Beta) is now a live third option**: Tessl's 8/13 recap of the 8/10 intro call confirmed Chuck gave them the same "how it reviewed" feedback he's held Gitar to; a dedicated "Tessl Code Review overview" call is set for the same day, **Mon Aug 17, 8:30-9:15am CT**. Chuck forwarded the call recording to Cory 8/13 with a positive read on pricing. **A fourth strand emerged 2026-08-13/14: Chuck is personally prototyping a bespoke code-review agent** (`fieldnation/fn-review-agent`, started at the Field Week hackathon), inspired partly by Augment Code's "Cosmos" approach — the first concrete action behind the "bespoke agent" option the H2 OKR doc already listed as a candidate. CodeRabbit and PR Agent surfaced via the AI Guild but aren't in the formal evaluation. See [knowledge/tech-context.md](./knowledge/tech-context.md#gitar-ai-code-review-candidate-sonar-live-as-of-2026-07-27) and [tessl section](./knowledge/tech-context.md#tessl--new-evaluation-candidate-surfaced-2026-08-0607).
+- **Unblocked dropped in favor of Guru (2026-06-30), but Guru has still never started.** Chuck solely owns the pilot; NDA signed 6/30, no POC five weeks later. Unblocked pilot formally paused and its Slack integration turned off 2026-07-17. This is the workspace's longest-stalled item.
+- **Agent telemetry is now a real KR1 workstream (2026-07-21 → 08-03).** MOI-80/81 instrument Claude Code and Copilot via OTel: **layer 1 (usage metrics) → getDX, layer 2 (per-invocation diagnostic events) → Datadog**, content firewall verified, `ai-harness-otel` Datadog index live as of 8/3. **MOI-47 resolved 2026-08-11: APM dropped in favor of a marketplace model for both Claude and Copilot, built on the existing `ai-toolbox`** — agreed at the "AI-DLC Plugin Roll-Out Strategy" meeting (Chuck, Cory, Ben Moormeier, Mike Mueller). Distribution mechanism: **Okta group force-push + MDM** for Claude Code; **MDM** for Copilot marketplace settings. MOI-90/MOI-91 (ai-toolbox gap tickets) do not block this rollout. **PR [ai-toolbox#51](https://github.com/fieldnation/ai-toolbox/pull/51) merged and MOI-47 marked Done 2026-08-17** (ships `fn-platform` bundle + auto-update workflow + ai-toolbox's own CI/CD moved to Harness, v0.2.0) — but Harness UI wiring (webhook, connector, PR/push triggers) still needs manual setup before it's actually enforcing anything on PRs (Joe now owns doing this, per 8/18 DM); new PR #60 up to finish the Copilot side. **Claude Code side is live for engineers as of 8/17** ("available in claude code and desktop," per Chuck); the org-wide announcement is on hold on Copilot's side — a first live MDM push test (8/18, via new contact Paul Wochnick) installed correctly but the marketplace still didn't surface in Copilot, suspected Copilot-CLI gap in the MDM channel, unresolved. See [knowledge/tech-context.md](./knowledge/tech-context.md). **The repo-readiness score is now working code** (`repo-scanner`/`repo-passport`/`repo-health`/`repo-readiness` → `.ai-factory/`, with docker/host sandbox test execution), now living in its own repo, [`fieldnation/ai-repo-score`](https://github.com/fieldnation/ai-repo-score) (created 8/3). See [knowledge/tech-context.md](./knowledge/tech-context.md).
+- **Q3 OKR tracking now runs through the org-level PEX OKR Tracker (2026-07-17).** Shane Kinder ran a Q3 OKRs Calibration Meeting against a new [PEX OKR Tracker | Q3 2026](https://docs.google.com/spreadsheets/d/1g2TP4RppTtteFlXkJGaQp3GQOUvMeQZu_0zw3FLFVKE/edit) spreadsheet, distinct from the team's earlier draft tracker; there's now a weekly Tuesday owner-update expectation (Chuck hasn't responded to 7/21, 7/28 or 8/4). **O2 M1 (AgentCore architecture plan approved, target July 31) shows no evidence of landing** while Chuck was OOO. The canonical objectives/KRs still live in [program/OKRs/h2-2026-okrs.md](./program/OKRs/h2-2026-okrs.md).
+- **O1 now operationalized into Linear (2026-07-16/17):** ~35 tickets under the new "Engineering Velocity via Repo Enablement" Linear project, 4 KR milestones. **Repo 1 concretely assigned as `fieldnation/engineering-dbt`** (MOI-64) — treat this as the current best-known pilot repo even though broader leadership team-selection isn't formally closed. Event-skill split resolved (`fn-event-integration` in ai-toolbox; contract authority moved to `fieldnation/schema-registry`). See [program/overview.md](./program/overview.md#h2-okrs-operationalized-into-linear-tickets-repo-1-assigned-2026-0716-17).
+- **O1 KR1 repo scorecard is fully done (2026-08-17):** MOI-55 stands up live DX-pulled metrics (TrueThroughput, PR cycle time, PR revert rate) for the embed-pilot repo; **MOI-56 (publish/document) also now Done as of 8/17**, closing KR1 end to end. New ticket **MOI-93 "FN UI skill"** (Backlog) updates the Tier 2 UI skill for the Field Week brand refresh, scoped to use `fn-brand`. See [knowledge/tech-context.md](./knowledge/tech-context.md#repo-scorecard-kr1-built-and-going-into-documentation-2026-08-12).
+- **Gitar trial setup underway; Tessl's own eval infra just got independently stress-tested (2026-08-17/18).** Gitar's pre-trial sync happened 8/17 (Chuck, Joe, and — still — Redwan); next step is connecting Gitar to GitHub by Wednesday 8/19, same day as the rescheduled Cory pricing call. Separately, Mykhailo's independent Tessl A/B investigation found real evidence skills change agent behavior, but Tessl's hosted eval pipeline failed to complete a run and rejected 2/3 generated scenarios for rubric leakage — a relevant caution against trusting any vendor's hosted-eval claims (Gitar included) without independent verification. See [knowledge/tech-context.md](./knowledge/tech-context.md).
+- **Gitar trial kickoff happened on schedule (2026-08-19); O1 code-review candidate list keeps growing.** Trial kickoff call and the Gitar/Cory pricing call both ran today, Redwan attending again. Same day, GitHub Copilot's native code review gained agent-skill + MCP support — new ticket **MOI-97** (Asad Ali) is testing whether ai-toolbox's marketplace-distributed skills reach it. Three more unevaluated tools were also ticketed (**MOI-94** roborev.io, **MOI-95** Clanker constitution, **MOI-96** AgentsView) under a new "Additional Tooling" milestone. **2026-08-20: Gitar went live on real `core-ui` PRs**, giving the first concrete (not vendor-claimed) evidence for Chuck's "how it reviewed" objection — its terse "Approved, no issues found" verdicts missed real issues that Copilot's review caught on the same diffs; Gitar also auto-diagnoses CI failures with an auto-apply fix mode, a new capability. Still hasn't narrowed the O1 code-review decision. See [program/overview.md](./program/overview.md#gitar-goes-live-on-real-prs--first-direct-evidence-for-the-how-it-reviewed-debate-weekly-cadence-flags-sapphire-2026-08-18-20). **2026-08-20/21: two mirrored tickets now directly test fixes for the "how it reviewed" gap** — MOI-98 (Chuck) is testing Gitar's custom `.gitar/rules/*.md` Repository Rules against it; MOI-97 (Asad) has moved to concrete probe PRs in `core-ui` testing whether MOI-47's marketplace-distributed skills reach Copilot's automated review. Side note: Chuck's `fn-review-agent` bot is now auto-commenting on PRs, first sign it's operating beyond hackathon-prototype stage. See [knowledge/tech-context.md](./knowledge/tech-context.md#gitar-ai-code-review-candidate-sonar-live-as-of-2026-07-27).
+- **The industry converged on the "code abundance" thesis in August 2026 (logged 2026-08-25).** GitLab CEO Bill Staples' "When code is abundant" (8/24) and Anthropic's *AI-Native SDLC Playbook* (8/21) landed four days apart on the same argument AI-DLC has made internally since the 7/13 embed-first pivot: generation stopped being the bottleneck, trust became it. Both lean on three production case studies (Stripe minions, Spotify Honk, Amplitude 3x), all now read as primary sources. Three findings that bear directly on current work: **(1)** Amplitude independently arrived at FN's embed-first model after their org-wide "peanut butter approach" failed, and admits they tried to build agents before the infrastructure existed — strongest external validation of the 7/13 pivot; **(2)** Spotify's standardization finding has a corollary `repo-readiness` may be conflating — consistency (can we write context?) and verifiability (can the agent check its own work?) are separate prerequisites, and dbt, i.e. **Emerald**, is precisely the consistent-but-untested case; **(3)** Anthropic's **`REVIEW.md`** play (review policy as a committed artifact with named passes, per-finding pass tags, machine-readable severity tally) is a live alternative resolution to Chuck's "how did it review?" objection, structurally close to MOI-98's Gitar Repository Rules test and portable across whichever tool wins O1. Also flagged: CI duration is not currently an AI-DLC metric and both sources say it should be the first one; no decomposition of cost-per-accepted-change exists; no auto-merge criteria work is underway; and skill/`CLAUDE.md` changes aren't eval-gated in CI despite MOI-47 now force-pushing the marketplace to every engineer. See [knowledge/industry-landscape.md](./knowledge/industry-landscape.md) and [research/2026-08-25-code-abundance-thesis.md](./research/2026-08-25-code-abundance-thesis.md).
+- **MOI-97 resolved 2026-08-24: marketplace-distributed skills do not reach Copilot's automated PR review — repo-committed skills do.** Controlled A/B in `core-ui` (0/11 violations caught without a repo-local skill vs. 6/6 with one) — doesn't pick an O1 code-review winner but settles that review-relevant skills must be committed per repo regardless of which tool wins. Same day, a leadership-level **"AI-DLC Metrics Overview"** meeting (Chuck, Cory, Shane Kinder, Travis Emslander) locked in concrete O1 targets: Repo 1 = **"Emerald"** (`engineering-dbt`), Core UI and **FN Core** confirmed as next embed-model targets, **True Throughput** (target 3.5 vs. P90 benchmark 2.6) as the primary KR1 metric, repository-based (not team-based) measurement. Sonar also sent the **Gitar order form** to Cory/Chuck, and a second, more substantive Sonar SSO ticket (Okta OIDC, #73160) surfaced. See [program/overview.md](./program/overview.md#moi-97-resolved-metrics-locked-in-with-leadership-gitar-order-form-arrives-2026-08-21--08-24) and [program/OKRs/h2-2026-okrs.md](./program/OKRs/h2-2026-okrs.md).

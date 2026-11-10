@@ -1,0 +1,163 @@
+# Industry Landscape
+
+Standing home for **external** industry POV relevant to AI-DLC: vendor theses, published case studies, emerging vocabulary, and named practices from other organizations. Distinct from [tech-context.md](./tech-context.md), which covers Field Nation's own stack, tooling decisions, and in-flight evaluations.
+
+**How to use this file:** append a dated entry per source or cluster of sources. Keep entries short — the thesis, the hard evidence, the FN-relevant hook, and a link to the deeper research report if one exists. This file is the map; research reports are the territory.
+
+**When Chuck references "that article" or asks about industry direction, start here.**
+
+---
+
+## Current state of the industry conversation (as of 2026-08-25)
+
+The dominant thesis, converged on by multiple major players in August 2026:
+
+> **Code generation stopped being the bottleneck. Trust became the bottleneck.** Everything downstream of generation — environment setup, CI, verification, review, governance, evidence — is now proportionally more expensive and is where the remaining leverage sits.
+
+Vocabulary that has entered common use and is worth using in FN conversations:
+
+- **Cost per accepted change** (not cost per line) as the economic unit — decomposed across generation, environment, context, verification, review, remediation, governance.
+- **Three modes, not one maturity curve** — human-controlled legacy / agentically accelerated / autonomous. The dividing line is whether execution can safely close the loop, *not* greenfield vs. brownfield.
+- **"Learning turns into code"** — production failures become regression tests, incidents become policies, compliance obligations become continuous validation, accumulated agent outcomes become an internal eval set.
+- **Builder** as a role spanning engineer / designer / PM / domain expert — anyone who can express intent, direct agents, and evaluate the result.
+- **PDLC** over SDLC — the boundary between developing software and developing the product dissolves.
+- **Context engineering** (Spotify's term) — the discipline of assembling and maintaining what an agent knows about a codebase.
+- **Agents don't remove constraints; they expose them faster.** The load-bearing corollary: *"a thirty-minute CI pipeline defeats every model you point at it."*
+
+Three claims that are well-evidenced across independent sources:
+
+1. **Infrastructure before agents.** Every organization that got real results rebuilt dev environments and CI first. Amplitude admits they tried the reverse and it failed.
+2. **Standardization is a prerequisite for agent reliability.** Inconsistent frameworks make context unwritable. Spotify dropped a whole framework from a migration over this.
+3. **Embed, don't spread.** Amplitude's "peanut butter approach" across the whole org failed; they moved to a tiger team plus embedded engineers. Independent arrival at FN's own 2026-07-13 embed-first pivot.
+
+One claim that is *not* well-evidenced and should be treated carefully: that any of this produces reliable, generalizable percentage gains. Only Amplitude publishes a genuine before/after. Stripe and Spotify publish absolute snapshots with no baselines. Anthropic's playbook has no case studies or statistics at all. And all three case-study orgs had unusually strong pre-existing infrastructure — Stripe's devboxes and 3M-test suite and Spotify's Fleet Management all predate LLM agents.
+
+---
+
+## Sources
+
+### 2026-08-24 — GitLab, "When code is abundant" (Bill Staples, CEO)
+
+https://about.gitlab.com/blog/when-code-is-abundant/
+
+**Thesis:** When implementation becomes abundant, trust becomes scarce. Trust depends on the environment around the model — context, verification, governance, evidence — and that layer must be durable and independent of any single model or vendor. His ownership principle: *"Own the agent. Own its instructions. Own the context it learns from. Keep the models and infrastructure underneath it a choice."*
+
+**Read it as:** a well-argued thesis with a product attached. It concludes with GitLab's four-capability platform architecture (agent platform / execution / context / governance) and "that is the opportunity we see for GitLab." The observations hold up; the architectural conclusion is a sales position. Its evidence is entirely borrowed from Stripe, Spotify, and Amplitude.
+
+**Most useful pieces for FN:** cost per accepted change; the three-modes framing and its three diagnostic questions; "the pipeline runs the inner loop"; the "records, not files" critique of markdown-in-repo practice; the 90-day checklist (measure cost per accepted change, time your CI, write down auto-merge criteria, make context portable, choose which business signals enter the loop).
+
+**Note the naming collision:** Staples uses "software factory" in almost exactly the sense the Moissanite workstream does — *"a system that continuously turns intent and business signals into verified software."*
+
+**Citable line:** *"Software engineering spent sixty years protecting a scarce resource. It will spend the next decade governing an abundant one."*
+
+→ Full analysis, with all figures verified against primary sources: [research/2026-08-25-code-abundance-thesis.md](../research/2026-08-25-code-abundance-thesis.md)
+
+### 2026-08-21 — Anthropic, *The AI-Native SDLC Playbook* (Louis Claxton, Applied AI)
+
+https://claude.com/blog/the-ai-native-sdlc-playbook
+
+**The piece GitLab is responding to, and the more directly operational of the two.** Closest thing publicly available to a build spec for what AI-DLC is trying to do. Opens with "Code is no longer the bottleneck."
+
+Six stages as a loop (Plan / Design / Build / Test / Deploy / Maintain), prescribed as modular "plays" with a dependency graph. The load-bearing mechanic is the **committed artifact chain**: `intent.md` → `spec.md` → `plan.md` → diff and tests → PR with review findings → incident record. Each stage ends by writing to version control; the next begins by reading it; accepted artifacts fire the next gate.
+
+**Contains no case studies and no statistics.** Every number in it is a recommendation, not a measurement.
+
+**Most relevant to the open O1 code-review decision:** the `REVIEW.md` play — the review policy becomes a committed artifact with **named passes** (bugs/logic, security, compliance against spec and plan), each finding **tagged with its pass**, "Important" vs. "Nit" defined, nits capped, and a **machine-readable severity tally published by the check run**. Findings never approve or block on their own; branch protection still requires a code owner.
+
+**This is a different answer to Chuck's "how did it review?" problem.** Not reviewer explainability — instead, the organization declares what must be checked and regression-tests the reviewer's compliance via evals. Structurally close to what MOI-98 is testing with Gitar's `.gitar/rules/*.md`. Possibly more achievable than getting a vendor to change its output, and portable across whichever tool wins.
+
+**Also worth carrying:** evals run in CI on a schedule *and on any change to `CLAUDE.md`, skills, or hooks*, with config changes gated on eval pass rate, and every production incident becoming a permanent eval. Skills are explicitly framed as **advisory** controls — *"A skill is a control, though an advisory one… The skill makes violations rare and the hook makes them close to impossible."* That maps precisely onto the MOI-97 finding about which skills actually reach an automated reviewer.
+
+### 2026-02 — Stripe, "Minions: Stripe's one-shot, end-to-end coding agents" (Parts 1 & 2)
+
+https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents · [Part 2](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2)
+
+Fully unattended agents: Slack message in, CI-passing PR out, no interaction in between. **Over 1,300 merged PRs/week are entirely minion-produced** (up from 1,000 ten days earlier — secondary sources still quote the older figure). 3M+ test suite, ~500 internal MCP tools, hundreds of millions of lines of code.
+
+**Two patterns worth stealing:**
+
+- **"Blueprints"** — workflows defined in code as a state machine where each node is either deterministic code or a scoped agent loop. Agentic: "Implement task," "Fix CI failures." Deterministic: "Run configured linters," "Push changes" (no LLM call at all). *"Putting LLMs into contained boxes compounds into system-wide reliability upside."*
+- **The environment is the containment boundary, not the merge gate.** Pre-warmed EC2 "devboxes" in the QA environment, no production access, no real user data, no arbitrary egress — and *because* of that isolation, minions run with **full permissions and no confirmation prompts.** A materially different safety model from tool-level restriction.
+
+**Don't misattribute:** Stripe has **no** risk model, **no** auto-merge, and **no** SOC 2 discussion. Every minion PR is reviewed by a second engineer. Their North Star is a PR with no human *code*, not no human *review*. Their pre-push checks are **linters, not tests** — under 5 seconds, backed by a caching daemon; tests run in CI, capped at two rounds before it goes back to the human.
+
+**Their failure modes:** global unconditional rule files filled the context window before the agent started (fix: conditionally scope everything to subdirectories and file patterns, auto-attached during traversal). Tool sprawl hurt — ~500 tools exist, minions get a small curated subset, because *"agents perform best when given a 'smaller box.'"* They sync one rule source across Cursor, Claude Code, and minions.
+
+**The caveat that matters:** devboxes, the 3M-test suite, the lint daemon, and Sourcegraph all predate LLM agents. This is a story about an org that already had the substrate.
+
+### 2025-11 → 2026-04 — Spotify Engineering, "Background Coding Agents" / Honk (4 parts)
+
+[Part 1](https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1) · [Part 2 — context engineering](https://engineering.atspotify.com/2025/11/context-engineering-background-coding-agents-part-2) · [Part 3 — feedback loops](https://engineering.atspotify.com/2025/12/feedback-loops-background-coding-agents-part-3) · [Part 4 — dataset migrations](https://engineering.atspotify.com/2026/4/background-coding-agents-dataset-migrations-honk-part-4)
+
+**The most useful of the three case studies for FN, because it's the most honest about failure.** 1,500+ merged AI-generated PRs (a Nov 2025 floor, never updated), 60–90% time saving on migrations, ~50 migrations run with Claude Code.
+
+Honk is **not a new system** — it's an extension of Spotify's existing Fleet Management, which already automated roughly half of all Spotify PRs pre-AI. Honk replaced only the transformation-definition step: a deterministic migration script became an agent taking a natural-language prompt.
+
+**Part 3 is the piece to study — abstracted verification.** Design principle, verbatim: *"the agent doesn't know what the verification does and how, it just knows that it can (and in certain cases must) call it to verify its changes."* Individual verifiers are never exposed; they auto-activate on repo contents (Maven verifier activates on a root `pom.xml`), behind a single MCP tool. Verifiers regex out only the relevant error lines and return a terse success message otherwise, for context economy. **All relevant verifiers run before a PR can be opened, via the Claude Code stop hook** — if one fails, no PR. An LLM-as-judge runs last on diff + original prompt, added because agents got *"a bit too 'ambitious', trying to solve problems that weren't strictly in their prompt, like refactoring code or disabling flaky tests."* Judge vetoes ~25% of sessions; the agent then course-corrects half the time.
+
+**Their ranked failure modes:** no PR produced ("a minor annoyance") < PR that fails CI ("frustrating") < **PR that passes CI but is functionally incorrect — "the most serious error, as it erodes trust in our automation."**
+
+**Context engineering: prompt-first, tool-light, on purpose.** They prefer large static prompts because *"you can version-control the prompts, write tests, and evaluate their performance,"* and reject thin-prompt-plus-many-tools because *"the more tools you have, the more dimensions of unpredictability you introduce."* Exactly three tool grants: verify, Git (selective subcommands, never push), Bash with a strict allowlist. Code search and documentation tools deliberately withheld. Their recommendation is to push context **into the repo** — tests, linters, API docs — because that works for all prompts and all agents thereafter. Best single prompting tip: **state preconditions, i.e. tell the agent when *not* to act.** Second best: ask the agent to critique its own prompt afterward.
+
+**The standardization finding (Part 4), and its nasty corollary.** Three pipeline frameworks. The two consistent ones (BigQuery Runner, dbt) worked; Scio's per-team variability meant *"this lack of standardisation… made it hard to write all-in-one prompts for Honk that could truly capture all available permutations."* **They dropped Scio entirely.** But the two standardized frameworks *rarely used build-time unit testing* — so verification was unavailable and all 240 PRs shipped on manual downstream testing. **Standardization bought context, not verifiability. They're separate prerequisites and they don't arrive together.** Directly relevant to Emerald: `engineering-dbt` is a dbt repo, and dbt is exactly the consistent-but-untested case.
+
+**Their admission worth remembering:** four parts into a public series about a production agent, *"we are still flying mostly by intuition. Our prompts evolve by trial and error. We don't yet have structured ways to evaluate which prompts or models perform best."*
+
+### undated (six-month window, published ~2026) — Amplitude, "Speedrunning Software: How We 3x'd PRs in 6 Months"
+
+https://amplitude.com/3x
+
+**The only one of the three with a genuine before/after dataset, a real auto-merge risk model, and a SOC 2 story.** All figures verified:
+
+| Metric | Before → After |
+|---|---|
+| PRs shipped | **3×**, same headcount, six months |
+| PR cycle time | 5.2 hrs → **44 min** |
+| Frontend CI | ~30 min → **3–4 min** |
+| Bug reports | 715/month → **319** (↓55%) |
+| Non-engineer share of PRs | 0% → **~5%** |
+| Newcomer full-stack setup | 1–4 days → 10–15 min |
+
+**What they rebuilt, in order:** a custom local dev CLI on devbox/Nix (per-service containers rejected — machines ran out of memory); CI via three levers, of which **swapping JS tooling for Rust/Go natives was "the single biggest lever"** (~10× on tsc→tsgo, ESLint→oxlint, Prettier→oxfmt); then **automated legacy migrations aimed specifically at the patterns that confused agents most** — three design systems collapsed to one, three translation systems to one — with the results codified as **agent rules and skills backed by lint checks** so nothing drifts back. These were migrations they'd *"written off for years."*
+
+**Their auto-merge risk model** scores size, scope, area of codebase, test coverage, and whether public APIs or data models change. Low risk + comments resolved = auto-merge; medium and above routes to a code owner. And the gate has its own feedback loop: *"When someone catches a change that shouldn't have merged, it goes into an eval suite, and we tune the risk model."*
+
+**Their SOC 2 paragraph is the most quotable thing in any of these sources:** *"SOC2 doesn't need a human to click approve. What it does need is demonstrable controls: documented criteria, logged decisions, and a way to override."* Approval and validation are logged as **separate signals**. Compliance was brought in early rather than retrofitted.
+
+**"CI as our new dev environment."** Below five minutes, local stopped being the fast option. Engineers push and review in GitHub — and being cloud, they aren't limited to one change at a time: *"They can kick off 20 PRs before logging off and review them the next morning."* That five-minute threshold produced a qualitative behavior change, not a marginal one.
+
+**Their admitted mistakes, the most valuable part for FN:**
+
+- **"The peanut butter approach" failed** — spread thin across the org. Moved to a tiger team plus embedded "AI-pilled engineers." Same conclusion as FN's embed-first pivot, reached independently.
+- **They tried to build agents before the infrastructure existed.** *"There was no need for us to jump to the end. Prioritizing our foundational DevEx is what ultimately helped us move faster."*
+- **The hard part was cultural.** Wade Chambers (Chief Engineering Officer): *"AI progression is largely not a technical issue. It's a cultural one."* Two waves — AI fluency, then workflow disruption — with leaders made to **vibe code live on stage in front of the whole EPD org.**
+- Self-aware on their own headline metric: *"PRs can be artificially inflated, and more code isn't inherently valuable."*
+
+**Non-engineers shipping code is Amplitude-only among the three.** Designers, PMs, and marketers at ~5% of PRs. Named case: a principal designer went from a button-alignment PR to reorganizing product navigation and sunsetting low-usage sections — a change the team wanted but never prioritized. Enablers: fast setup, preview links so nothing runs locally, per-PR deep links to the changed page, real training, and **an internal marketplace for shared skills that anyone can access.**
+
+### 2026-07-16 — Warp, "A Guide to Cloud Software Factories for Engineering Leaders"
+
+https://www.warp.dev/blog/a-guide-to-cloud-software-factories-for-engineering-leaders
+
+Shared by Chuck in #moissanite-eng with the framing *"we aren't building out the full factory"* but relevant background. Logged here for continuity; predates the August thesis cluster above.
+
+### 2026-08-14 — Augment Code, "Solving Code Review with Cosmos"
+
+https://www.augmentcode.com/blog/solving-code-review-with-cosmos
+
+Shared by Chuck in #eng-news as closely matching his own vision for agentic code review (interactive pair-review pattern). Partial inspiration for the `fn-review-agent` prototype. Kept here as the code-review-specific industry POV; the FN-side evaluation state lives in [tech-context.md](./tech-context.md#gitar-ai-code-review-candidate-sonar-live-as-of-2026-07-27).
+
+---
+
+## Open questions this landscape raises for FN
+
+Tracked here so they don't get lost between research reports. Full reasoning in [research/2026-08-25-code-abundance-thesis.md](../research/2026-08-25-code-abundance-thesis.md) §5.
+
+1. **What is FN's cost per accepted change, decomposed?** KR1 measures the aggregate (True Throughput, cycle time, revert rate) but not the breakdown across environment / CI / review wait / remediation / governance. Both GitLab and Amplitude say the breakdown is where the actionable finding lives.
+2. **What are Emerald's, Core UI's, and FN Core's full CI pipeline durations?** Not currently an AI-DLC metric. Amplitude's five-minute threshold was a phase change, not an increment. Cheap to measure, plausibly reorders the KR2 playbook.
+3. **What class of low-risk change could merge without a human, and what are the documented criteria?** Nothing in O1 does this. It's the only lever that *removes* human review time rather than accelerating it, and Amplitude's risk model plus SOC 2 framing is a working template.
+4. **Is the four-way code-review bake-off the right shape of question?** None of these three organizations solved trust at the review layer. Spotify and Amplitude both invested in verification-before-PR first. "What does the agent get to verify before it opens a PR on this repo" may be the more consequential question.
+5. **Should skill and `CLAUDE.md` changes be gated on an eval pass rate in CI?** Anthropic says yes explicitly. FN has DeepEval in ai-toolbox and evidence that skills change behavior (Mykhailo, 8/17) but no CI gate — and MOI-47 now force-pushes the marketplace to every engineer's machine, which raises the stakes.
+6. **Does `repo-readiness` score consistency and verifiability independently?** Spotify's Part 4 shows a repo can be strong on one and useless on the other. Conflating them would mis-rank repos.
+7. **What's the answer to "records, not files" at FN scale?** For `.ai-factory/`, committed skills, and any future `intent.md` chain. "Linear plus git history" is a defensible answer but should be a deliberate one.
+8. **Is there a cultural track in the AI-DLC rollout?** Current rollout is technical-first — marketplace, telemetry, scorecards. Amplitude's strongest claim is that the technical half wasn't the hard part.

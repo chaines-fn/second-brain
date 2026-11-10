@@ -1,0 +1,246 @@
+<mxfile host="Electron" agent="Claude">
+  <diagram name="LangGraph PEV POC" id="pev-poc-arch">
+    <mxGraphModel dx="2905" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1180" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F16A22;strokeColor=#C0500F;fontColor=#FFFFFF;fontSize=20;fontStyle=1;" value="AI Software Factory  |  LangGraph PEV POC: Architecture" vertex="1">
+          <mxGeometry height="44" width="1720" x="40" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#162741;fontColor=#162741;fontSize=12;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="Legend" vertex="1">
+          <mxGeometry height="122" width="330" x="1430" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_claude" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=10;" value="Claude agent" vertex="1">
+          <mxGeometry height="24" width="120" x="1442" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_openai" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=10;" value="OpenAI agent" vertex="1">
+          <mxGeometry height="24" width="120" x="1442" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_human" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB838;strokeColor=#CC932D;fontColor=#162741;fontSize=10;" value="Human gate" vertex="1">
+          <mxGeometry height="26" width="120" x="1442" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_aws" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=10;" value="AWS service" vertex="1">
+          <mxGeometry height="24" width="120" x="1578" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_ext" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#162741;strokeColor=#162741;fontColor=#FFFFFF;fontSize=10;" value="External system" vertex="1">
+          <mxGeometry height="24" width="120" x="1578" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_dash" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#162741;" value="dashed = delegate / async" vertex="1">
+          <mxGeometry height="24" width="150" x="1578" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_linear" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#162741;strokeColor=#162741;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" value="Linear&#xa;Tickets, comments, approvals" vertex="1">
+          <mxGeometry height="80" width="180" x="-90" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_github" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#162741;strokeColor=#162741;fontColor=#FFFFFF;fontSize=12;fontStyle=1;" value="GitHub&#xa;PRs, code review" vertex="1">
+          <mxGeometry height="80" width="180" x="-100" y="468" as="geometry" />
+        </mxCell>
+        <mxCell id="apigw" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" value="API Gateway" vertex="1">
+          <mxGeometry height="66" width="66" x="290" y="252" as="geometry" />
+        </mxCell>
+        <mxCell id="lambda" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" value="Webhook router (Lambda)&#xa;start vs decision, dedupe,&#xa;correlate by issue ID" vertex="1">
+          <mxGeometry height="66" width="66" x="290" y="452" as="geometry" />
+        </mxCell>
+        <mxCell id="c_orch" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#3142AC;fontColor=#3142AC;fontSize=13;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;dashed=0;" value="PEV Controller: Orchestrator  (LangGraph state machine for POC  -&gt;  Temporal for production)&#xa;owns phase order, round counter (cap 3), human gates, durable resume" vertex="1">
+          <mxGeometry height="470" width="1340" x="420" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="n_intake" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDEFF3;strokeColor=#162741;fontColor=#162741;fontSize=10;" value="INTAKE&#xa;clone repo, read Linear&#xa;(no LLM)" vertex="1">
+          <mxGeometry height="66" width="130" x="445" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n_plan" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontStyle=1;" value="PLAN&#xa;Planner&#xa;(Claude Opus)" vertex="1">
+          <mxGeometry height="66" width="130" x="610" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n_review" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=11;fontStyle=1;" value="PLAN REVIEW&#xa;Reviewer&#xa;(OpenAI GPT-5.5)" vertex="1">
+          <mxGeometry height="66" width="130" x="775" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="g_approve" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB838;strokeColor=#CC932D;fontColor=#162741;fontSize=10;fontStyle=1;" value="Plan approval&#xa;(async, Linear)" vertex="1">
+          <mxGeometry height="70" width="130" x="940" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="n_execute" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontStyle=1;" value="EXECUTE&#xa;Orchestrator&#xa;(Claude Sonnet)" vertex="1">
+          <mxGeometry height="66" width="130" x="1105" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n_verify" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontStyle=1;" value="VERIFY&#xa;Verifier, fresh context&#xa;(Claude Sonnet)" vertex="1">
+          <mxGeometry height="66" width="140" x="1270" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="g_verdict" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB838;strokeColor=#CC932D;fontColor=#162741;fontSize=11;fontStyle=1;" value="verdict?" vertex="1">
+          <mxGeometry height="66" width="110" x="1445" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="sa_da" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=10;dashed=1;" value="Devil&#39;s Advocate subagent&#xa;(OpenAI GPT-5.5)" vertex="1">
+          <mxGeometry height="50" width="170" x="755" y="392" as="geometry" />
+        </mxCell>
+        <mxCell id="sa_codex" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=10;dashed=1;" value="Coding subagents&#xa;implement + tests (OpenAI Codex)" vertex="1">
+          <mxGeometry height="50" width="180" x="1050" y="392" as="geometry" />
+        </mxCell>
+        <mxCell id="sa_advisor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=10;dashed=1;" value="Opus advisor subagent&#xa;hard review calls (Claude Opus)" vertex="1">
+          <mxGeometry height="50" width="175" x="1255" y="392" as="geometry" />
+        </mxCell>
+        <mxCell id="g_merge" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFB838;strokeColor=#CC932D;fontColor=#162741;fontSize=10;fontStyle=1;" value="Human merge gate" vertex="1">
+          <mxGeometry height="66" width="120" x="1440" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="n_ship" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1FA881;strokeColor=#178564;fontColor=#FFFFFF;fontSize=11;fontStyle=1;" value="SHIP&#xa;merge, update Linear" vertex="1">
+          <mxGeometry height="56" width="140" x="1430" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="n_escalate" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F15B69;strokeColor=#C14954;fontColor=#FFFFFF;fontSize=10;fontStyle=1;" value="ESCALATE&#xa;Linear comment&#xa;(round = cap)" vertex="1">
+          <mxGeometry height="56" width="140" x="1610" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n_intake" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#3142AC;rounded=1;" target="n_plan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n_plan" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#3142AC;rounded=1;" target="n_review">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n_review" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#3142AC;rounded=1;" target="g_approve">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="g_approve" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#178564;rounded=1;fontSize=10;fontColor=#178564;" target="n_execute" value="approved">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="n_execute" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#3142AC;rounded=1;" target="n_verify">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n_verify" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#3142AC;rounded=1;" target="g_verdict">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_changes" edge="1" parent="1" source="g_approve" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#CC932D;rounded=1;dashed=1;fontSize=10;fontColor=#B36A00;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="n_plan" value="changes requested&#xa;(bounded loop, back to PLAN)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1005" y="265" />
+              <mxPoint x="675" y="265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_pass" edge="1" parent="1" source="g_verdict" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#178564;rounded=1;fontSize=10;fontColor=#178564;" target="g_merge" value="pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_merge_ship" edge="1" parent="1" source="g_merge" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#178564;rounded=1;fontSize=10;fontColor=#178564;" target="n_ship" value="approved">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_fail" edge="1" parent="1" source="g_verdict" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#C14954;rounded=1;dashed=1;fontSize=10;fontColor=#C14954;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="n_execute" value="fail &amp; round &lt; cap&#xa;findings -&gt; new todos">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1370" y="550" />
+              <mxPoint x="1260" y="550" />
+              <mxPoint x="1260" y="480" />
+              <mxPoint x="1230" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_cap" edge="1" parent="1" source="g_verdict" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#C14954;rounded=1;fontSize=10;fontColor=#C14954;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="n_escalate" value="round = cap">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1680" y="313" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_da" edge="1" parent="1" source="n_review" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#14736F;dashed=1;" target="sa_da">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_codex" edge="1" parent="1" source="n_execute" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#14736F;dashed=1;" target="sa_codex">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_adv" edge="1" parent="1" source="n_verify" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#3142AC;dashed=1;" target="sa_advisor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lin_gw" edge="1" parent="1" source="ext_linear" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;rounded=1;fontSize=10;fontColor=#162741;" target="apigw" value="webhooks:&#xa;label add, comment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_gw_lam" edge="1" parent="1" source="apigw" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;rounded=1;" target="lambda">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lam_start" edge="1" parent="1" source="lambda" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;rounded=1;fontSize=10;fontColor=#162741;" target="n_intake" value="start run">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_lam_sig" edge="1" parent="1" source="lambda" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#999999;rounded=1;dashed=1;fontSize=10;fontColor=#162741;" target="g_approve" value="decision signal&#xa;(resume parked run)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="323" y="660" />
+              <mxPoint x="1005" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_exec_gh" edge="1" parent="1" source="n_execute" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;rounded=1;fontSize=10;fontColor=#162741;exitX=0;exitY=1;exitDx=0;exitDy=0;" target="ext_github" value="open / update PR">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="380" />
+              <mxPoint x="970" y="490" />
+              <mxPoint x="970" y="630" />
+              <mxPoint x="150" y="640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_gh_ver" edge="1" parent="1" source="ext_github" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;rounded=1;fontSize=10;fontColor=#162741;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" target="n_verify" value="diff, review comments">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-110" y="330" />
+              <mxPoint x="-130" y="180" />
+              <mxPoint x="150" y="180" />
+              <mxPoint x="1340" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c_runtime" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#F16A22;fontColor=#C0500F;fontSize=13;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="AWS Runtime:  Bedrock AgentCore (POC)  -&gt;  ECS / EKS + Temporal (production)" vertex="1">
+          <mxGeometry height="260" width="1140" x="60" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_runtime" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=11;" value="AgentCore Runtime&#xa;hosts the graph;&#xa;session isolation" vertex="1">
+          <mxGeometry height="70" width="170" x="90" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_memory" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=10;" value="Memory&#xa;checkpointer&#xa;(durable state)" vertex="1">
+          <mxGeometry height="86" width="110" x="290" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_sandbox" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=11;fontStyle=1;" value="Sandbox&#xa;FN-Core Docker parity&#xa;build + tests in-sandbox" vertex="1">
+          <mxGeometry height="70" width="190" x="430" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_identity" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=11;" value="Identity&#xa;OAuth to&#xa;Linear + GitHub" vertex="1">
+          <mxGeometry height="70" width="150" x="650" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_obs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=11;" value="Observability&#xa;LangSmith +&#xa;CloudWatch / OTEL" vertex="1">
+          <mxGeometry height="70" width="160" x="830" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_gateway" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBDE;strokeColor=#F16A22;fontColor=#162741;fontSize=11;" value="Gateway + Policy&#xa;MCP tools, guardrails" vertex="1">
+          <mxGeometry height="70" width="150" x="1020" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="rt_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#162741;fontStyle=2;" value="Durability: LangGraph checkpointer (AgentCore Memory / Postgres, durability=sync) for the POC; Temporal per-activity durability, retries, and multi-day durable waits for production. Idempotency keys on every external write." vertex="1">
+          <mxGeometry height="60" width="1080" x="90" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="c_model" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FC;strokeColor=#13AEAC;fontColor=#14736F;fontSize=13;fontStyle=1;align=center;verticalAlign=top;spacingTop=6;" value="Model Plane:  Amazon Bedrock  (in AWS boundary)" vertex="1">
+          <mxGeometry height="260" width="530" x="1230" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="m_opus" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontStyle=1;" value="Claude Opus&#xa;Plan, Verify advisor" vertex="1">
+          <mxGeometry height="55" width="230" x="1255" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="m_sonnet" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D9DCF2;strokeColor=#3142AC;fontColor=#162741;fontSize=11;fontStyle=1;" value="Claude Sonnet&#xa;Execute orchestrator, Verify" vertex="1">
+          <mxGeometry height="55" width="230" x="1255" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="m_gpt5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=11;fontStyle=1;" value="OpenAI GPT-5.5&#xa;Plan Review + Devil&#39;s Advocate" vertex="1">
+          <mxGeometry height="55" width="230" x="1505" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="m_codex" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D2F3F3;strokeColor=#14736F;fontColor=#162741;fontSize=11;fontStyle=1;" value="OpenAI Codex&#xa;Implementation" vertex="1">
+          <mxGeometry height="55" width="230" x="1505" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="m_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#14736F;fontStyle=2;" value="OpenAI models called via Bedrock Responses API. Claude via Messages API. Prompt caching auto for Bedrock Claude." vertex="1">
+          <mxGeometry height="50" width="480" x="1255" y="905" as="geometry" />
+        </mxCell>
+        <mxCell id="e_orch_rt" edge="1" parent="1" source="c_orch" style="endArrow=classic;startArrow=classic;html=1;strokeWidth=2;strokeColor=#F16A22;rounded=1;fontSize=10;fontColor=#C0500F;" target="c_runtime" value="hosted on / durable state">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_orch_model" edge="1" parent="1" source="c_orch" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#13AEAC;rounded=1;fontSize=10;fontColor=#14736F;" target="c_model" value="per-agent model calls">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1495" y="695" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_exec_sandbox" edge="1" parent="1" source="sa_codex" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#F16A22;dashed=1;rounded=1;fontSize=10;fontColor=#C0500F;" target="rt_sandbox" value="run build / tests">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="525" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

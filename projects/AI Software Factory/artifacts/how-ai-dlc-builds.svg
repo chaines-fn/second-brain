@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 2080" role="img"
+     aria-labelledby="adlc-title adlc-desc" font-family="'Avenir Next', Avenir, 'Gill Sans', 'Segoe UI', sans-serif">
+  <title id="adlc-title">How AI-DLC Builds: Linear ticket to merged PR</title>
+  <desc id="adlc-desc">A vertical flowchart. Prerequisites: repo passes the AI-Readiness
+    score, skills installed via ai-toolbox. Phase 1, a ticket enters Linear
+    already triaged by a human. Phase 2, a Plan agent drafts a spec, OpenSpec-
+    style, plus an ADR, using a spec-writing skill from ai-toolbox and pulling
+    organizational context: related specs, ADRs, and service boundaries from
+    other repos, not just the local one, so the plan accounts for cross-team
+    dependencies. A side loop has a Plan Review Agent and a Devil's Advocate
+    debate the draft before a human ever sees it. Phase 3, the human plan gate:
+    nothing gets built without a human approving the spec and ADR. Phase 4, a
+    coding agent implements against the approved spec inside an isolated
+    sandbox with no production access, using repo-context and coding-standards
+    skills. Phase 5, deterministic checks run first: build, lint, tests, and
+    Sonar static analysis; a failure routes straight back up to the coding
+    agent, shown as a dashed teal arrow whose arrowhead points up into phase 4.
+    Phase 6, code review agents read the diff using review and standards
+    skills, ranking findings as blocker, major, minor, or nit; a blocker or
+    major finding sends the diff back to the coding agent, also shown as a
+    dashed teal arrow pointing back up into phase 4, up to two times before
+    escalating to a human. Phase 7, the merge gate scores the PR: a risk score
+    computed from static signals only combines with the review findings to
+    produce the final verdict, so a low-risk PR with a major-or-higher finding
+    still will not auto-merge. The gate then routes every PR down one of two
+    distinct paths that converge on the same merge: escalate for human
+    review, today's path, where a human still approves; or suggested
+    auto-merge, not yet enabled, where a low-risk, clean-review PR could merge
+    with no human approval, a governance decision rather than a technical
+    one. A thick amber left edge means a human leans in hard; a thin teal
+    edge means an agent runs it with human checkpoints; a dashed violet edge
+    marks the not-yet-enabled auto-merge path.</desc>
+
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b93a2"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f0b452"/>
+    </marker>
+    <marker id="arr-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5fd4c0"/>
+    </marker>
+    <marker id="arr-teal-end" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5fd4c0"/>
+    </marker>
+    <marker id="arr-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#b98cf0"/>
+    </marker>
+  </defs>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="940" height="2080" rx="18" fill="#14171c"/>
+  <rect x="1.5" y="1.5" width="937" height="2077" rx="17" fill="none" stroke="#2a303a" stroke-width="1.5"/>
+
+  <!-- header -->
+  <text x="64" y="78" fill="#e7e9ee" font-size="34" font-weight="700" letter-spacing="0.5">How AI-DLC Builds</text>
+  <text x="64" y="106" fill="#99a1ad" font-size="15">Linear ticket to merged PR: agents draft; humans decide.</text>
+
+  <!-- legend -->
+  <g font-size="12.5">
+    <rect x="640" y="44" width="14" height="14" rx="3" fill="#f0b452"/>
+    <text x="662" y="55.5" fill="#c6cbd4">human leans in hard</text>
+    <rect x="640" y="64" width="14" height="14" rx="3" fill="#5fd4c0"/>
+    <text x="662" y="75.5" fill="#c6cbd4">agent runs it, human checkpoints</text>
+    <line x1="640" y1="95" x2="654" y2="95" stroke="#8b93a2" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="662" y="99.5" fill="#c6cbd4">loop until it resolves</text>
+    <line x1="640" y1="115" x2="654" y2="115" stroke="#b98cf0" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="662" y="119.5" fill="#c6cbd4">aspirational — not enabled yet</text>
+  </g>
+
+  <!-- prerequisites banner -->
+  <g>
+    <rect x="64" y="136" width="812" height="64" rx="10" fill="#1b1f26" stroke="#f27878" stroke-width="1.5"/>
+    <text x="88" y="162" fill="#f27878" font-size="12" font-weight="700" letter-spacing="2">PREREQUISITES: NO TICKET ENTERS THE LOOP WITHOUT THESE</text>
+    <text x="88" y="184" fill="#dfe2e8" font-size="13" font-family="ui-monospace, 'SF Mono', Menlo, monospace">AI-Readiness Score passed  ·  skills installed (ai-toolbox)</text>
+  </g>
+  <line x1="330" y1="200" x2="330" y2="236" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 1: ticket intake -->
+  <g>
+    <rect x="64" y="240" width="532" height="152" rx="10" fill="#1b1f26" stroke="#333a46"/>
+    <rect x="64" y="240" width="9" height="152" rx="4.5" fill="#f0b452"/>
+    <circle cx="106" cy="272" r="16" fill="none" stroke="#f0b452" stroke-width="2"/>
+    <text x="106" y="277.5" fill="#f0b452" font-size="16" font-weight="700" text-anchor="middle">1</text>
+    <text x="134" y="278" fill="#e7e9ee" font-size="19" font-weight="700">Ticket enters Linear, already triaged</text>
+    <text x="92" y="308" fill="#c6cbd4" font-size="13.5">A human has already decided this is worth building, and</text>
+    <text x="92" y="328" fill="#c6cbd4" font-size="13.5">roughly what it needs to do. AI-DLC starts once a ticket is</text>
+    <text x="92" y="348" fill="#c6cbd4" font-size="13.5">ready; it doesn't pick or prioritize the work itself.</text>
+    <text x="92" y="372" fill="#f0b452" font-size="12" font-weight="700" letter-spacing="1.5">MAXIMIZE HUMAN JUDGMENT HERE</text>
+  </g>
+  <line x1="330" y1="392" x2="330" y2="428" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 2: plan agent drafts the spec -->
+  <g>
+    <rect x="64" y="432" width="532" height="200" rx="10" fill="#1b1f26" stroke="#333a46"/>
+    <rect x="64" y="432" width="4" height="200" rx="2" fill="#5fd4c0"/>
+    <circle cx="106" cy="464" r="16" fill="none" stroke="#5fd4c0" stroke-width="2"/>
+    <text x="106" y="469.5" fill="#5fd4c0" font-size="16" font-weight="700" text-anchor="middle">2</text>
+    <text x="134" y="470" fill="#e7e9ee" font-size="19" font-weight="700">Plan agent drafts the spec</text>
+    <text x="92" y="500" fill="#c6cbd4" font-size="13.5">The ticket becomes a written spec (OpenSpec-style): what to build</text>
+    <text x="92" y="520" fill="#c6cbd4" font-size="13.5">and why, plus an ADR alongside it.</text>
+    <text x="92" y="544" fill="#c6cbd4" font-size="13.5">It also pulls organizational context: related specs, ADRs, and</text>
+    <text x="92" y="564" fill="#c6cbd4" font-size="13.5">service boundaries from other repos, not just the local one.</text>
+    <text x="92" y="588" fill="#99a1ad" font-size="12.5" font-family="ui-monospace, 'SF Mono', Menlo, monospace">Linear ticket -&gt; OpenSpec spec (+ ADR)</text>
+    <text x="92" y="608" fill="#b98cf0" font-size="12.5" font-family="ui-monospace, 'SF Mono', Menlo, monospace">spec-writing + org-context skills · ai-toolbox</text>
+  </g>
+
+  <!-- side loop: plan review + devil's advocate -->
+  <g>
+    <rect x="640" y="432" width="236" height="200" rx="10" fill="#171b21" stroke="#5fd4c0" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="660" y="460" fill="#5fd4c0" font-size="12" font-weight="700" letter-spacing="1.2">BEFORE A HUMAN SEES IT</text>
+    <text x="660" y="484" fill="#dfe2e8" font-size="13">A Plan Review Agent and a</text>
+    <text x="660" y="502" fill="#c6cbd4" font-size="13">Devil's Advocate debate the</text>
+    <text x="660" y="520" fill="#c6cbd4" font-size="13">draft, catching gaps before</text>
+    <text x="660" y="538" fill="#c6cbd4" font-size="13">it reaches the human gate.</text>
+    <text x="660" y="596" fill="#99a1ad" font-size="12" font-family="ui-monospace, 'SF Mono', Menlo, monospace">Reviewer &lt;-&gt; Advocate</text>
+    <line x1="596" y1="532" x2="640" y2="532" stroke="#5fd4c0" stroke-width="2" stroke-linecap="round" stroke-dasharray="5 4" marker-start="url(#arr-teal)" marker-end="url(#arr-teal)"/>
+  </g>
+  <line x1="330" y1="632" x2="330" y2="668" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 3: human plan gate -->
+  <g>
+    <rect x="64" y="668" width="532" height="136" rx="10" fill="#1b1f26" stroke="#f27878" stroke-width="1.5"/>
+    <rect x="64" y="668" width="9" height="136" rx="4.5" fill="#f0b452"/>
+    <circle cx="106" cy="700" r="16" fill="none" stroke="#f27878" stroke-width="2"/>
+    <text x="106" y="705.5" fill="#f27878" font-size="16" font-weight="700" text-anchor="middle">3</text>
+    <text x="134" y="706" fill="#e7e9ee" font-size="19" font-weight="700">Human plan gate</text>
+    <text x="92" y="732" fill="#f27878" font-size="12" font-weight="700" letter-spacing="1.3">NOTHING GETS BUILT WITHOUT A HUMAN OK'ING THE PLAN</text>
+    <rect x="92" y="746" width="13" height="13" rx="3" fill="none" stroke="#c6cbd4" stroke-width="1.5"/>
+    <text x="115" y="757.5" fill="#dfe2e8" font-size="13.5">Spec reflects the actual ask, not just a plausible-sounding one.</text>
+    <rect x="92" y="772" width="13" height="13" rx="3" fill="none" stroke="#c6cbd4" stroke-width="1.5"/>
+    <text x="115" y="783.5" fill="#dfe2e8" font-size="13.5">ADR captured alongside the spec.</text>
+  </g>
+  <line x1="330" y1="804" x2="330" y2="840" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 4: coding agent implements -->
+  <g>
+    <rect x="64" y="840" width="532" height="152" rx="10" fill="#1b1f26" stroke="#333a46"/>
+    <rect x="64" y="840" width="4" height="152" rx="2" fill="#5fd4c0"/>
+    <circle cx="106" cy="872" r="16" fill="none" stroke="#5fd4c0" stroke-width="2"/>
+    <text x="106" y="877.5" fill="#5fd4c0" font-size="16" font-weight="700" text-anchor="middle">4</text>
+    <text x="134" y="878" fill="#e7e9ee" font-size="19" font-weight="700">Coding agent implements</text>
+    <text x="92" y="908" fill="#c6cbd4" font-size="13.5">The coding agent writes against the approved spec inside an</text>
+    <text x="92" y="928" fill="#c6cbd4" font-size="13.5">isolated sandbox with no production access. If the sandbox</text>
+    <text x="92" y="948" fill="#c6cbd4" font-size="13.5">fails, a fresh one re-fetches the same spec and picks up.</text>
+    <text x="92" y="972" fill="#b98cf0" font-size="12.5" font-family="ui-monospace, 'SF Mono', Menlo, monospace">repo-context + coding-standards skills · ai-toolbox</text>
+  </g>
+  <line x1="330" y1="992" x2="330" y2="1028" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 5: automated checks -->
+  <g>
+    <rect x="64" y="1028" width="532" height="170" rx="10" fill="#1b1f26" stroke="#333a46"/>
+    <rect x="64" y="1028" width="4" height="170" rx="2" fill="#5fd4c0"/>
+    <circle cx="106" cy="1060" r="16" fill="none" stroke="#5fd4c0" stroke-width="2"/>
+    <text x="106" y="1065.5" fill="#5fd4c0" font-size="16" font-weight="700" text-anchor="middle">5</text>
+    <text x="134" y="1066" fill="#e7e9ee" font-size="19" font-weight="700">Automated checks run first</text>
+    <text x="92" y="1096" fill="#c6cbd4" font-size="13.5">Deterministic checks run before any AI review: a failure here</text>
+    <text x="92" y="1116" fill="#c6cbd4" font-size="13.5">goes straight back to the coding agent; no review agent gets</text>
+    <text x="92" y="1136" fill="#c6cbd4" font-size="13.5">burned reviewing code that doesn't even build.</text>
+    <!-- check chips -->
+    <rect x="92" y="1154" width="54" height="24" rx="12" fill="#15291f" stroke="#5fd4c0" stroke-width="1.2"/>
+    <text x="119" y="1170" fill="#8fe9d8" font-size="12" text-anchor="middle">Build</text>
+    <rect x="156" y="1154" width="48" height="24" rx="12" fill="#15291f" stroke="#5fd4c0" stroke-width="1.2"/>
+    <text x="180" y="1170" fill="#8fe9d8" font-size="12" text-anchor="middle">Lint</text>
+    <rect x="214" y="1154" width="54" height="24" rx="12" fill="#15291f" stroke="#5fd4c0" stroke-width="1.2"/>
+    <text x="241" y="1170" fill="#8fe9d8" font-size="12" text-anchor="middle">Tests</text>
+    <rect x="278" y="1154" width="112" height="24" rx="12" fill="#15291f" stroke="#5fd4c0" stroke-width="1.2"/>
+    <text x="334" y="1170" fill="#8fe9d8" font-size="12" text-anchor="middle">Sonar (SAST)</text>
+    <!-- loop back to phase 4: right-angle return path, exits phase 5 near its top, travels up, arrowhead lands at phase 4 near its top -->
+    <path d="M 596 1043 L 636 1043 L 636 850 L 596 850" fill="none" stroke="#5fd4c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" marker-end="url(#arr-teal-end)"/>
+    <text x="648" y="938" fill="#5fd4c0" font-size="11.5">fails come straight</text>
+    <text x="648" y="954" fill="#5fd4c0" font-size="11.5">back, no agent burned</text>
+  </g>
+  <line x1="330" y1="1198" x2="330" y2="1234" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 6: code review agents -->
+  <g>
+    <rect x="64" y="1234" width="532" height="216" rx="10" fill="#1b1f26" stroke="#333a46"/>
+    <rect x="64" y="1234" width="4" height="216" rx="2" fill="#5fd4c0"/>
+    <circle cx="106" cy="1266" r="16" fill="none" stroke="#5fd4c0" stroke-width="2"/>
+    <text x="106" y="1271.5" fill="#5fd4c0" font-size="16" font-weight="700" text-anchor="middle">6</text>
+    <text x="134" y="1272" fill="#e7e9ee" font-size="19" font-weight="700">Code review agents read the diff</text>
+    <text x="92" y="1302" fill="#c6cbd4" font-size="13.5">A review pass, a code-review agent plus standards and</text>
+    <text x="92" y="1322" fill="#c6cbd4" font-size="13.5">security checks, reads the diff the way a senior engineer</text>
+    <text x="92" y="1342" fill="#c6cbd4" font-size="13.5">would: what's off, and what it judged fine.</text>
+    <text x="92" y="1364" fill="#c6cbd4" font-size="13.5">Findings are ranked blocker, major, minor, or nit.</text>
+    <text x="92" y="1384" fill="#c6cbd4" font-size="13.5">Blocker or major findings bounce back to the coding agent</text>
+    <text x="92" y="1404" fill="#c6cbd4" font-size="13.5">(up to 2 times) before escalating to a human.</text>
+    <text x="92" y="1428" fill="#b98cf0" font-size="12.5" font-family="ui-monospace, 'SF Mono', Menlo, monospace">review + standards skills · ai-toolbox</text>
+  </g>
+
+  <!-- severity escalation loop back to coding agent, routed through the left margin: right-angle return path, exits phase 6 near its top, travels up, arrowhead lands at phase 4 near its top -->
+  <path d="M 64 1249 L 24 1249 L 24 850 L 64 850" fill="none" stroke="#5fd4c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" marker-end="url(#arr-teal-end)"/>
+
+  <line x1="330" y1="1450" x2="330" y2="1486" stroke="#8b93a2" stroke-width="3" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- phase 7: merge gate scores the PR -->
+  <g>
+    <rect x="64" y="1486" width="532" height="236" rx="10" fill="#1b1f26" stroke="#f27878" stroke-width="1.5"/>
+    <rect x="64" y="1486" width="9" height="236" rx="4.5" fill="#f0b452"/>
+    <circle cx="106" cy="1518" r="16" fill="none" stroke="#f27878" stroke-width="2"/>
+    <text x="106" y="1523.5" fill="#f27878" font-size="16" font-weight="700" text-anchor="middle">7</text>
+    <text x="134" y="1524" fill="#e7e9ee" font-size="19" font-weight="700">Merge gate scores the PR</text>
+    <text x="92" y="1550" fill="#f27878" font-size="12" font-weight="700" letter-spacing="1.3">GATE COMBINES RISK SCORE + REVIEW FINDINGS</text>
+    <text x="92" y="1578" fill="#c6cbd4" font-size="13.5">Risk is scored from static signals only, independent</text>
+    <text x="92" y="1598" fill="#c6cbd4" font-size="13.5">of review findings: change type, paths, blast radius,</text>
+    <text x="92" y="1618" fill="#c6cbd4" font-size="13.5">diff size, backward-compat surface. Docs/config-only</text>
+    <text x="92" y="1638" fill="#c6cbd4" font-size="13.5">PRs skip the review agent entirely.</text>
+    <text x="92" y="1660" fill="#c6cbd4" font-size="13.5">The final verdict weighs both together: a low-risk</text>
+    <text x="92" y="1680" fill="#c6cbd4" font-size="13.5">PR with a major-or-higher finding still won't auto-merge.</text>
+    <text x="92" y="1704" fill="#dfe2e8" font-size="13" font-weight="700">The gate then routes every PR down one of two paths:</text>
+  </g>
+
+  <!-- fork into two distinct routes -->
+  <path d="M 330 1722 C 280 1742, 220 1746, 191 1762" fill="none" stroke="#8b93a2" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
+  <path d="M 330 1722 C 380 1742, 440 1746, 469 1762" fill="none" stroke="#8b93a2" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr)"/>
+
+  <!-- route A: escalate for human review -->
+  <g>
+    <rect x="64" y="1762" width="254" height="176" rx="10" fill="#1b1f26" stroke="#f0b452" stroke-width="1.5"/>
+    <rect x="64" y="1762" width="9" height="176" rx="4.5" fill="#f0b452"/>
+    <text x="92" y="1792" fill="#e7e9ee" font-size="16" font-weight="700">Human review</text>
+    <text x="92" y="1814" fill="#f0b452" font-size="11.5" font-weight="700" letter-spacing="0.6">TODAY'S PATH</text>
+    <text x="92" y="1838" fill="#c6cbd4" font-size="13">A human reviews the findings</text>
+    <text x="92" y="1856" fill="#c6cbd4" font-size="13">and approves before anything</text>
+    <text x="92" y="1874" fill="#c6cbd4" font-size="13">merges, how every PR ships</text>
+    <text x="92" y="1892" fill="#c6cbd4" font-size="13">today, graduating over time</text>
+    <text x="92" y="1910" fill="#c6cbd4" font-size="13">as trust in automation grows.</text>
+  </g>
+
+  <!-- route B: suggested auto-merge -->
+  <g>
+    <rect x="342" y="1762" width="254" height="176" rx="10" fill="#171b21" stroke="#b98cf0" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <rect x="342" y="1762" width="4" height="176" fill="#b98cf0"/>
+    <text x="370" y="1792" fill="#e7e9ee" font-size="16" font-weight="700">Auto-merge</text>
+    <text x="370" y="1814" fill="#b98cf0" font-size="11.5" font-weight="700" letter-spacing="0.6">NOT ENABLED YET</text>
+    <text x="370" y="1838" fill="#c9b8e8" font-size="13">Tier 3, low risk AND a</text>
+    <text x="370" y="1856" fill="#c9b8e8" font-size="13">clean review (no major+</text>
+    <text x="370" y="1874" fill="#c9b8e8" font-size="13">findings) merge with no</text>
+    <text x="370" y="1892" fill="#c9b8e8" font-size="13">human approval. Designed for</text>
+    <text x="370" y="1910" fill="#c9b8e8" font-size="13">it, a governance call.</text>
+  </g>
+
+  <!-- both routes converge on the same merge -->
+  <path d="M 191 1938 C 191 1952, 260 1964, 310 1978" fill="none" stroke="#f0b452" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arr-amber)"/>
+  <path d="M 469 1938 C 469 1952, 400 1964, 350 1978" fill="none" stroke="#b98cf0" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 4" marker-end="url(#arr-violet)"/>
+
+  <!-- terminal -->
+  <g>
+    <rect x="64" y="1982" width="532" height="52" rx="26" fill="#1d2a20" stroke="#7fd98f" stroke-width="2"/>
+    <text x="330" y="2014" fill="#7fd98f" font-size="17" font-weight="700" text-anchor="middle">Merge the PR · own the outcome</text>
+  </g>
+
+</svg>
