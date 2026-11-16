@@ -1,10 +1,10 @@
 # Persona: Ryan Schulte
 
 - **Role:** Principal Product Designer
-- **Relationship:** Design collaborator with Chuck — cross-functional partner on Break/Fix, NetDev/recruitment tooling, and AI prototyping (created the PM Playbook quickstart Loom, helps train others on it)
+- **Relationship:** Design collaborator with Chuck — cross-functional partner on NetDev/recruitment tooling, and AI prototyping (created the PM Playbook quickstart Loom, helps train others on it)
 - **Use case:** Drafting Slack/email to him, writing in his voice, and anticipating his reactions
 - **Last updated:** 2026-07-02
-- **Built from:** ~60 Slack messages (#product, #proj-recruitments-v2, #slate-pex, #replit-pilot, #ai-prototyping-crew, #ai-prototyping-lab, #breakfix-core, #temp-bf-h2-planning, #netdev-recruitement-ai, #ask-breakfix-reporting, DMs and group DMs with Chuck), 1 email thread (2024)
+- **Built from:** ~60 Slack messages (#product, #proj-recruitments-v2, #slate-pex, #replit-pilot, #ai-prototyping-crew, #ai-prototyping-lab, #netdev-recruitement-ai, DMs and group DMs with Chuck), 1 email thread (2024)
 
 ---
 
@@ -73,7 +73,7 @@ _Checklist before finalizing any message in his voice:_
 
 | Source | Date Range | Volume | Notes |
 |--------|------------|--------|-------|
-| Slack  | recent activity, exact dates not resolved from search | ~60 messages | #product, #proj-recruitments-v2, #slate-pex, #replit-pilot, #ai-prototyping-crew, #ai-prototyping-lab, #breakfix-core, #temp-bf-h2-planning, #netdev-recruitement-ai, #ask-breakfix-reporting, DMs/group DMs with Chuck |
+| Slack  | recent activity, exact dates not resolved from search | ~60 messages | #product, #proj-recruitments-v2, #slate-pex, #replit-pilot, #ai-prototyping-crew, #ai-prototyping-lab, #netdev-recruitement-ai, DMs/group DMs with Chuck |
 | Email  | 2024-03 | 1 thread | Thin — he's Slack-native, not a heavy email communicator |
 | User interview | 2026-07-02 | — | Confirmed synthesis preview, no corrections |
 

@@ -29,7 +29,7 @@ Technical lead for the Pearl team (FN's dedicated AI/agents team). Pure IC — n
 
 ### Cory Muir — Sr. Director, Software Engineering
 
-Chuck's direct manager. Brought Chuck to FN from a previous company. They DM frequently about strategy, frustrations, and org dynamics. Cory is deeply knowledgeable about Unisys/Break/Fix requirements. They share a vision for how AI should transform FN's engineering org. Supportive of Claude Code adoption. Used the AI PM Playbook for Unisys solution exploration. Manages the relationship with Travis (CTO) on AI tooling decisions. Slack DM: D067TF410Q1.
+Chuck's direct manager. Brought Chuck to FN from a previous company. They DM frequently about strategy, frustrations, and org dynamics. Cory is deeply knowledgeable about Unisys requirements. They share a vision for how AI should transform FN's engineering org. Supportive of Claude Code adoption. Used the AI PM Playbook for Unisys solution exploration. Manages the relationship with Travis (CTO) on AI tooling decisions. Slack DM: D067TF410Q1.
 → Persona: [people/cory-muir/persona.md](./cory-muir/persona.md)
 
 ### Mike Mueller — Sr. Principal Engineer
@@ -52,7 +52,7 @@ Same capacity as Ridi — manages BD teams Chuck collaborates with. Known for be
 
 ### Bilas Sarker — Staff Software Engineer
 
-Leads BD engineering teams from an engineering perspective. Chuck works closely with him on Break/Fix and other cross-team work. Slack ID: U0UEQEJ5A.
+Leads BD engineering teams from an engineering perspective. Chuck works closely with him on other cross-team work. Slack ID: U0UEQEJ5A.
 
 ### Mobarok Hossain — Staff Software Engineer
 
@@ -60,12 +60,12 @@ Same capacity as Bilas — BD engineering lead. Chuck is pushing him toward owni
 
 ### Lynsay Faucett — Product Manager
 
-Chuck works with her to coordinate engineering team work from a product perspective — helping understand engineering viewpoints on product wants. Currently primary PM/decision owner for Smart Dispatch (Break/Fix). Slack ID: UF854NLG2 (handle lynsay.white — non-married name, not a data error).
+Chuck works with her to coordinate engineering team work from a product perspective — helping understand engineering viewpoints on product wants. Slack ID: UF854NLG2 (handle lynsay.white — non-married name, not a data error).
 → Persona: [people/lynsay-faucett/persona.md](./lynsay-faucett/persona.md)
 
 ### Linda Lo — Principal Product Manager
 
-Critical for keeping Break/Fix cross-stream work coherent. There's concern about continuity when she eventually transitions off. Created the #ai-prototyping-crew and #ai-prototyping-lab channels. Slack ID: U08K27W18F8.
+There's concern about continuity when she eventually transitions off. Created the #ai-prototyping-crew and #ai-prototyping-lab channels. Slack ID: U08K27W18F8.
 
 ### Tashfiq Islam — Product Owner
 
@@ -86,6 +86,5 @@ Works with Chuck on design. Created the PM Playbook quickstart Loom video for on
 
 ## Key Dynamics
 
-- Linda Lo is the glue for Break/Fix cross-stream coherence. PMs otherwise work in silos.
 - AI tooling adoption is bottom-up (Chuck driving) rather than top-down.
 - Chuck bridges engineering and product — helping product understand engineering tradeoffs, and vice versa.

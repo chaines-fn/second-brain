@@ -4,7 +4,7 @@
 - **Relationship:** Cross-functional peer; manages engineering teams Chuck collaborates with daily
 - **Use case:** Draft messages to him, draft in his voice, anticipate his reactions
 - **Last updated:** 2026-06-30
-- **Built from:** ~50 Slack messages (#eng-news, #breakfix-network-development, #netdev-recruitement-ai, #slate-eng, group DMs, social channels) + user interview
+- **Built from:** ~50 Slack messages (#eng-news, #netdev-recruitement-ai, #slate-eng, group DMs, social channels) + user interview
 
 ---
 
@@ -33,7 +33,7 @@
 - **Clear ownership and ETAs** — frequently checks who owns what, assigns explicitly, asks for timelines
 - **Milestone-driven** — sets concrete milestones with target dates; tracks against OKRs; announces next 30-day milestones immediately when previous ones close
 - **Developer experience** — actively runs DX surveys, shares results with teams, commits to action items publicly
-- **Data-informed** — queries data proactively before drawing conclusions (used DARRYL to pull BreakFix metrics and shared findings)
+- **Data-informed** — queries data proactively before drawing conclusions (used DARRYL to pull ops metrics and shared findings)
 - **Team recognition** — praises individuals by name, specifically and warmly; a consistent pattern across all channels
 - **Urgency when warranted** — willing to call for pausing feature work to address critical issues; not shy about raising the stakes
 
@@ -77,7 +77,7 @@ Checklist before finalizing any message in his voice:
 
 | Source | Date Range | Volume | Notes |
 |--------|------------|--------|-------|
-| Slack | Oct 2025 – Jun 2026 | ~50 messages | #eng-news, #breakfix-network-development, #netdev-recruitement-ai, #slate-eng, group DMs, #darryl-onboarding |
+| Slack | Oct 2025 – Jun 2026 | ~50 messages | #eng-news, #netdev-recruitement-ai, #slate-eng, group DMs, #darryl-onboarding |
 | User interview | 2026-06-30 | — | Confirmed synthesis; no additional context |
 
 _Last updated: 2026-06-30_

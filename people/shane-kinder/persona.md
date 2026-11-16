@@ -1,7 +1,7 @@
 # Persona: Shane Kinder
 
 - **Role:** EVP Product, Field Nation (same level as Cory Muir)
-- **Relationship:** Chuck interacts with him on high-level product concerns, OKRs, and cross-functional planning (Core Transform, Break/Fix, FN 3.0)
+- **Relationship:** Chuck interacts with him on high-level product concerns, OKRs, and cross-functional planning (Core Transform, FN 3.0)
 - **Use case:** Draft messages to him that will land well; anticipate his reaction to plans/updates
 - **Last updated:** 2026-07-13
 - **Built from:** ~20 Slack messages/threads, 2 full planning emails, user interview

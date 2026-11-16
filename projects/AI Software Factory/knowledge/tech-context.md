@@ -151,6 +151,14 @@ This confirms the 8/4-8/5 APM-removal pivot and closes the open "what does the g
 
 ---
 
+## Factory Resume and Warp Shape (2026-11-10)
+
+- **Resume.** Factory work restarted 11/10 with Cory's approval, after a pause during security incident 8098. Chuck's rationale: the factory only opens and edits PRs, with no server or system-level access. Scope is limited to PRs labeled `factory:fai`. Pause start and incident root cause are not recorded in these sources.
+- **Per-team factories (idea).** Chuck's 11/10 read is that a standard factory with team factories that extend it would keep each team's repo scope limited. Warp's blueprint preview (deterministic workflow nodes) was described as fitting this. Not a decision.
+- **Still open.** Warp commercial redlines (sent 11/06) and the Warp-as-factory direction have no recorded outcome.
+
+_(recorded 2026-11-10 from Slack. Unverified: incident scope and cause.)_
+
 ## Warp Factory Scope Expands and Commercial Terms (2026-11-04 to 11-09)
 
 - **Scope.** The factory now covers the ONYX team (MOI-213), the Engineering factory, and `work-order-management` (MOI-229 Done, MOI-231 In Review, PR #140 posted ready for review 11/09). Linear team filter removed (MOI-222), so access is gated by Warp accounts.

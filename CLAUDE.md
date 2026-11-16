@@ -22,8 +22,6 @@ PersonalAssistant/
 ├── projects/
 │   ├── AI Software Factory/     ← Agentic software dev pipeline project
 │   │   └── CLAUDE.md            ← Start here for AI Software Factory context
-│   ├── BreakFix/                ← Break/fix fulfillment engine project
-│   │   └── CLAUDE.md            ← Start here for Break/Fix context
 │   ├── Core Transform/          ← FN 2.0/3.0 transformation initiative
 │   │   └── CLAUDE.md            ← Start here for Core Transform context
 │   └── UI Modernization/        ← Strangler-pattern frontend migration
@@ -107,7 +105,6 @@ When drafting messages or documents for me: warm, casual, direct. "Hey y'all" en
 - **Buyer** — Companies posting work for providers
 - **BD** — Bangladesh (Dhaka), where much of the engineering team is located
 - **PUDO** — Pick-Up/Drop-Off location (Unisys-specific, assigned at part level)
-- **Smart Dispatch** — Automated WO-to-provider assignment (Break/Fix)
 - **LTE** — Long Term Engagement (buyers to retain)
 - **NetDev** — Internal team that vets/recruits providers for enterprise buyers
 - **GTM** — Go to Market

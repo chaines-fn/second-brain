@@ -1,7 +1,7 @@
 # Persona: Lynsay Faucett
 
 - **Role:** Product Manager
-- **Relationship:** Cross-functional peer — Chuck coordinates engineering work with her from a product perspective, helping her understand engineering viewpoints on product wants. Currently primary PM/decision owner for Smart Dispatch (Break/Fix).
+- **Relationship:** Cross-functional peer — Chuck coordinates engineering work with her from a product perspective, helping her understand engineering viewpoints on product wants.
 - **Use case:** Draft messages to her; anticipate her reactions
 - **Last updated:** 2026-07-02
 - **Built from:** ~25 Slack messages (2023–2026), 6 email threads (2023–2025), user interview
@@ -69,7 +69,7 @@ _Checklist before finalizing any message in her voice:_
 
 | Source | Date Range | Volume | Notes |
 |--------|------------|--------|-------|
-| Slack  | 2023–2026 | ~25 messages | #product, #unisys, #marble-pex, #parts-logistics, #proj-classify-breakfix, DMs and group DMs with Chuck |
+| Slack  | 2023–2026 | ~25 messages | #product, #unisys, #marble-pex, #parts-logistics, DMs and group DMs with Chuck |
 | Gmail  | 2023–2025 | 6 threads | Mostly KYB/Persona vendor coordination and FedEx/webhook forwards |
 | User interview | 2026-07-02 | — | Confirmed use case (draft to her, anticipate reactions) and clarified "White" is her non-married name |
 

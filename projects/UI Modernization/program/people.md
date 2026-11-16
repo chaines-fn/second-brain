@@ -70,6 +70,11 @@
 - **Slack:** <@U0AT74JRDMM>
 - **Note:** First appearance in #proj-ui-modernization 2026-10-12. Working on core-ui security dependency updates (OBS-630, core-ui PR #622) and asked for repo write access on 10-15. As of 10-16, also assigned OBS-594 (extend shared analytics and notifications for the Provider Match port, In Progress) and asked the team for more tickets. Role, contract/employee status, and wider workstream still to be confirmed. _(updated 2026-10-16)_ Took the provider availability view ticket on 2026-10-29 after Ivan's overlapping work was folded into another PR. _(updated 2026-10-29)_
 
+### Tashfiqul Islam
+- **Role:** Joined 2026-11-11/12 to coordinate and execute classic-page migration (Angular and PHP pages to Core UI). Chuck describes him as someone who "knows where the bodies are buried." Title and employment status not stated.
+- **Slack:** Not yet recorded.
+- **Note:** First appeared in the 11-11 UI sync (invited) and joined the 11-12 UI sync, where he suggested tracking secret rotations in a tracker sheet. Expected to join standups. _(added 2026-11-12)_
+
 ## Stakeholders
 
 ### Molly Grailer
